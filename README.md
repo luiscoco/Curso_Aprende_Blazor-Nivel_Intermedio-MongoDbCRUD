@@ -56,7 +56,6 @@ Install the required NuGet packages:
 
 Create a new c# class in the Data folder
 
-![image](https://github.com/user-attachments/assets/6ece1384-4837-4ff3-a666-9acdd3458d29)
 
 We input the source code for the ApplicationDbContext.cs
 
@@ -72,7 +71,7 @@ Create the Product class
 
 Add the ProductService.cs file 
 
-![image](https://github.com/user-attachments/assets/a34c83b0-ef05-4a72-9338-bee03bcdc2b9)
+
 
 Add the following source code
 
