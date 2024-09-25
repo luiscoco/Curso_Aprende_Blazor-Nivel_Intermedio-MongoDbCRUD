@@ -7,7 +7,6 @@ Install and run Docker Desktop
 Open a command prompt window and run this command:
 
 
-![image](https://github.com/user-attachments/assets/8fdf1a18-5dd9-4ef7-b127-0f8b198c866a)
 
 ## 2. Connect to SQL Server Management Studio (SSMS)
 
