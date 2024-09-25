@@ -1,6 +1,6 @@
-# How to create a Blazor Web App for SQL Server CRUD
+# How to create a Blazor Web App with MongoDb CRUD
 
-## 1. Run a Docker Container with SQL Server
+## 1. Run a MongoDb Docker Container 
 
 Install and run Docker Desktop
 
