@@ -6,6 +6,14 @@ Install and run Docker Desktop
 
 ![image](https://github.com/user-attachments/assets/a427ea65-7fd8-4973-ba77-7a701fc87142)
 
+Verify first the Mongo image
+
+![image](https://github.com/user-attachments/assets/62496ca6-c86d-4e23-a825-44fa4fe9c0b7)
+
+Also verify the Mongo container is running properly
+
+![image](https://github.com/user-attachments/assets/6e386354-e175-42d0-9007-876a8f44688a)
+
 Open a command prompt window and run this command:
 
 ```
@@ -297,5 +305,6 @@ These are the refernces to include
 
 ## 14. Run the application and verify the results
 
+![image](https://github.com/user-attachments/assets/20543437-555c-4bb1-950c-dd44b6c95a4a)
 
 
