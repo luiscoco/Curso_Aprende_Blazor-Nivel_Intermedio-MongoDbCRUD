@@ -4,6 +4,8 @@
 
 Install and run Docker Desktop
 
+![image](https://github.com/user-attachments/assets/a427ea65-7fd8-4973-ba77-7a701fc87142)
+
 Open a command prompt window and run this command:
 
 ```
