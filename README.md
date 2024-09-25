@@ -6,23 +6,21 @@ Install and run Docker Desktop
 
 Open a command prompt window and run this command:
 
+```
+docker run -d -p 27017:27017 --name mongodb mongo
+```
 
+## 2. Connect to MongoDb running container
 
-## 2. Connect to SQL Server Management Studio (SSMS)
-
-
-
-## 3. Create the database 
-
-First we have to connect to MongoDb running docker container
+For accessing the MongoDb running docker container we run this command:
 
 ```
 docker exec -it mongodb mongosh
 ```
 
-## 4. Create the database table
+## 3. Create the database 
 
-Use the use command to switch to (or create) a database
+Use the **use** command to switch to (or create) a database
 
 MongoDB creates the database automatically when you first insert data into a collection
 
@@ -30,7 +28,7 @@ MongoDB creates the database automatically when you first insert data into a col
 use BlazorAppDB
 ```
 
-## 5. Seed the database with data
+## 4. Create the database table and Seed the database with data
 
 The collection is created when you first insert data
 
@@ -66,7 +64,7 @@ db.Product.insertMany([
 ])
 ```
 
-## 6. Create a Blazor Web Application in Visual Studio 2022 Community Edition
+## 5. Create a Blazor Web Application in Visual Studio 2022 Community Edition
 
 Run Visual Studio and create a new project
 
@@ -84,11 +82,13 @@ Leave all the default values and press the Create button
 
 ![image](https://github.com/user-attachments/assets/d580a161-0bef-4154-a4fe-3b724ed19f3f)
 
-## 7. Add the Nuget packages
+## 6. Add the Nuget packages
 
 Install the required NuGet packages:
 
-
+```
+dotnet add package MongoDB.Driver
+```
 
 ## 8. Create two new folders Data and Services
 
