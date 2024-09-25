@@ -208,7 +208,22 @@ namespace BlazorApp2.Services
 
 Edit the appsettings.json file and add the database connection string
 
-
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "MongoDB": {
+    "ConnectionString": "mongodb://localhost:27017",
+    "DatabaseName": "BlazorAppDB",
+    "CollectionName": "Products"
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## 12. Update the middleware (Program.cs)
 
