@@ -14,15 +14,57 @@ Open a command prompt window and run this command:
 
 ## 3. Create the database 
 
+First we have to connect to MongoDb running docker container
 
+```
+docker exec -it mongodb mongosh
+```
 
 ## 4. Create the database table
 
+Use the use command to switch to (or create) a database
 
+MongoDB creates the database automatically when you first insert data into a collection
+
+```
+use BlazorAppDB
+```
 
 ## 5. Seed the database with data
 
+The collection is created when you first insert data
 
+You can insert data into the Products collection like this:
+
+```
+db.Product.insertMany([
+  {
+    "ProductName": "Laptop",
+    "Price": 1000.00,
+    "Quantity": 10
+  },
+  {
+    "ProductName": "Smartphone",
+    "Price": 500.00,
+    "Quantity": 50
+  },
+  {
+    "ProductName": "Tablet",
+    "Price": 300.00,
+    "Quantity": 30
+  },
+  {
+    "ProductName": "Headphones",
+    "Price": 50.00,
+    "Quantity": 100
+  },
+  {
+    "ProductName": "Monitor",
+    "Price": 200.00,
+    "Quantity": 20
+  }
+])
+```
 
 ## 6. Create a Blazor Web Application in Visual Studio 2022 Community Edition
 
