@@ -92,24 +92,66 @@ Install the required NuGet packages:
 dotnet add package MongoDB.Driver
 ```
 
-## 8. Create two new folders Data and Services
+## 7. Create two new folders Data and Services
 
+![image](https://github.com/user-attachments/assets/691a9841-16e7-4f51-a2b1-72908b11a4f5)
 
-
-## 9. Add the ApplicationDbContext
+## 8. Add the MongoDbContext
 
 Create a new c# class in the Data folder
 
+![image](https://github.com/user-attachments/assets/ed019bbc-1b7e-43d0-8e75-1f3c76d254f5)
 
-We input the source code for the ApplicationDbContext.cs
+We input the source code for the MongoDbContext.cs
 
+```csharp
+using MongoDB.Driver;
 
+namespace BlazorApp2.Data
+{
+    public class MongoDbContext
+    {
+        private readonly IMongoDatabase _database;
+
+        public MongoDbContext(IConfiguration configuration)
+        {
+            var client = new MongoClient(configuration["MongoDB:ConnectionString"]);
+            _database = client.GetDatabase(configuration["MongoDB:DatabaseName"]);
+        }
+
+        public IMongoCollection<Product> Products
+        {
+            get { return _database.GetCollection<Product>(nameof(Product)); }
+        }
+    }
+}
+```
 
 ## 10. Add the Data Model 
 
 Create the Product class
 
+![image](https://github.com/user-attachments/assets/8f264457-71e7-49e4-aa6c-0a419df15686)
 
+Input the source code
+
+```csharp
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+
+namespace BlazorApp2.Data
+{
+    public class Product
+    {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }  // MongoDB uses a string for its IDs
+        public string? ProductName { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+    }
+}
+```
 
 ## 11. Add the Service
 
