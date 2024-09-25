@@ -127,7 +127,7 @@ namespace BlazorApp2.Data
 }
 ```
 
-## 10. Add the Data Model 
+## 9. Add the Data Model 
 
 Create the Product class
 
