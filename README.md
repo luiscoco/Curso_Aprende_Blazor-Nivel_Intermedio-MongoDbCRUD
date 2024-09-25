@@ -153,43 +153,95 @@ namespace BlazorApp2.Data
 }
 ```
 
-## 11. Add the Service
+## 10. Add the Service
 
 Add the ProductService.cs file 
 
-
+![image](https://github.com/user-attachments/assets/ac322193-6694-4ac8-af7a-cffb883cf0ac)
 
 Add the following source code
 
+```csharp
 
+```
 
-## 12. Add the database connection string in the appsettings.json file
+## 11. Add the database connection string in the appsettings.json file
 
 Edit the appsettings.json file and add the database connection string
 
 
 
-## 13. Update the middleware (Program.cs)
+## 12. Update the middleware (Program.cs)
 
 Include the services:
 
 ```csharp
-
+builder.Services.AddSingleton<MongoDbContext>();
+builder.Services.AddScoped<ProductService>();
 ```
 
 This is the Program.cs whole code:
 
 ```csharp
+using BlazorApp2.Components;
+using BlazorApp2.Data;
+using BlazorApp2.Services;
 
+var builder = WebApplication.CreateBuilder(args);
+
+// Register MongoDB context and services
+builder.Services.AddSingleton<MongoDbContext>();
+builder.Services.AddScoped<ProductService>();
+
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+app.UseAntiforgery();
+
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
+
+app.Run();
 ```
 
-## 14. Update the _Imports.razor 
+## 13. Update the _Imports.razor 
 
+This is the file to be uptdated
+
+![image](https://github.com/user-attachments/assets/8fd63dce-f39a-4915-8007-04a0cc5b623e)
+
+These are the refernces to include
+
+```razor
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+@using BlazorApp2
+@using BlazorApp2.Components
+@using BlazorApp2.Data
+@using BlazorApp2.Services
 ```
 
-```
-
-## 15. Run the application and verify the results
+## 14. Run the application and verify the results
 
 
 
